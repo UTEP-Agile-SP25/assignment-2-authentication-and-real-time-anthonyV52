@@ -190,13 +190,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/index.js":
+/***/ "./src/songs.js":
 /*!**********************!*\
-  !*** ./src/index.js ***!
+  !*** ./src/songs.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./auth */ \"./src/auth.js\");\n\r\n\r\n\r\nconst signUpForm = document.querySelector(\"#signupForm\")\r\nsignUpForm.addEventListener(\"submit\", (event)=>{\r\n    event.preventDefault()\r\n    const firstname = document.getElementById(\"firstName\").value\r\n    const lastname = document.getElementById(\"lastName\").value\r\n    const email = document.getElementById(\"signupEmail\").value\r\n    const password = document.getElementById(\"signupPassword\").value\r\n\r\n    ;(0,_auth__WEBPACK_IMPORTED_MODULE_0__.signUp)(firstname, lastname, email, password)\r\n})\r\n\r\nconst logOutForm = document.querySelector(\"#logoutForm\")\r\nlogOutForm.addEventListener(\"submit\", (event)=>{\r\n    event.preventDefault()\r\n    ;(0,_auth__WEBPACK_IMPORTED_MODULE_0__.logout)()\r\n})\r\n\r\nconst logInForm = document.querySelector(\"#loginForm\")\r\nlogInForm.addEventListener(\"submit\", (event)=>{\r\n    event.preventDefault()\r\n    const email = document.getElementById(\"loginEmail\").value\r\n    const password = document.getElementById(\"loginPassword\").value\r\n    ;(0,_auth__WEBPACK_IMPORTED_MODULE_0__.login)(email, password)\r\n})\n\n//# sourceURL=webpack://assignment-2-authentication-and-real-time-anthonyv52/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./auth */ \"./src/auth.js\");\n/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config */ \"./src/config.js\");\n\r\n\r\n\r\n\r\nasync function getSongs(){\r\n    try{\r\n        const songCollections = collection(_config__WEBPACK_IMPORTED_MODULE_1__.db, \"Songs\")\r\n        const snapshot = await getDocs(songCollections)\r\n        const songs = snapshot.docs.map(doc => ({id:doc.id, ...doc.data()}))\r\n\r\n        console.log(songs)\r\n\r\n    }catch(error){\r\n        console.error(\"Error getting songs\", error)\r\n    }\r\n}\r\n\r\nasync function addSong() {\r\n    const Title = document.getElementById(\"Title\").value.trim();\r\n    const Artist = document.getElementById(\"Artist\").value.trim();\r\n    const Year = document.getElementById(\"Year\").value.trim();\r\n    const Rating = parseInt(document.getElementById(\"Rating\").value);\r\n\r\n    try {\r\n        await addDoc(collection(_config__WEBPACK_IMPORTED_MODULE_1__.db, \"Songs\"),{ Title, Artist, Year, Rating });\r\n        alert(\"Song added!\");\r\n    } catch (error) {\r\n        console.log(\"Error adding song:\", error);\r\n    }\r\n};\r\ndocument.getElementById(\"song\").addEventListener(\"submit\", async function(event) {\r\n    event.preventDefault();\r\n    await addSong();\r\n});\r\n\r\nasync function deleteSong() {\r\n    const songId = document.getElementById(\"songId\").value.trim();\r\n\r\n    try {\r\n        const songDocRef = doc(_config__WEBPACK_IMPORTED_MODULE_1__.db, \"Songs\", songId);\r\n        await deleteDoc(songDocRef);\r\n        alert(\"Song Deleted!\");\r\n    } catch (error) {\r\n        console.log(\"Error Deleting song:\", error);\r\n    }\r\n};\r\ndocument.getElementById(\"deleteSong\").addEventListener(\"submit\", async function(event) {\r\n    event.preventDefault();\r\n    await deleteSong();\r\n});\r\n\r\n\r\nasync function updateSong() {\r\n    //const Title = document.getElementById(\"updateTitle\").value.trim();\r\n    const songID = document.getElementById(\"updateId\").value.trim();\r\n    const updateRating = parseInt(document.getElementById(\"updateRating\").value);\r\n\r\n    try {\r\n        const songDocRef = doc(_config__WEBPACK_IMPORTED_MODULE_1__.db, \"Songs\", songID);\r\n        await updateDoc(songDocRef, {Rating: updateRating});\r\n        alert(\"Song Updated!\");\r\n    } catch (error) {\r\n        console.log(\"Error Updating song:\", error);\r\n    }\r\n};\r\ndocument.getElementById(\"updateSong\").addEventListener(\"submit\", async function(event) {\r\n    event.preventDefault();\r\n    await updateSong();\r\n});\r\n\r\ngetSongs()\r\n\n\n//# sourceURL=webpack://assignment-2-authentication-and-real-time-anthonyv52/./src/songs.js?");
 
 /***/ })
 
@@ -272,7 +272,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _aut
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/songs.js");
 /******/ 	
 /******/ })()
 ;
