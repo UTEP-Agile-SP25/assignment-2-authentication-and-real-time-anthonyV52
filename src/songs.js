@@ -1,5 +1,6 @@
 import { signUp, logout, login, onAuthStateChange, fetchUserData } from "./auth";
 import { db } from "./config";
+import { getFirestore, collection, getDocs, addDoc, doc, deleteDoc, updateDoc } from "firebase/firestore";
 
 
 async function getSongs(){
