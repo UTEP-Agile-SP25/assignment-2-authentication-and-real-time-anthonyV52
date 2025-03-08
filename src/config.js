@@ -5,14 +5,14 @@ import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyByPO5WNm4acKUOPa8ywMi9FEUzFdY-GZA",
-  authDomain: "anthony-sandbox-9b6f9.firebaseapp.com",
-  projectId: "anthony-sandbox-9b6f9",
-  storageBucket: "anthony-sandbox-9b6f9.firebasestorage.app",
-  messagingSenderId: "199081558219",
-  appId: "1:199081558219:web:3c2b913d05f84d739e5b4e"
+  apiKey: "AIzaSyDL0vOBnmJUc141wN7B7DbD8NB_EqWFO0Q",
+  authDomain: "velasquez-sandbox.firebaseapp.com",
+  projectId: "velasquez-sandbox",
+  storageBucket: "velasquez-sandbox.firebasestorage.app",
+  messagingSenderId: "660536631717",
+  appId: "1:660536631717:web:e690091fa6b58a7144884c",
+  measurementId: "G-0ZN72R20MW"
 };
 
 // Initialize Firebase
