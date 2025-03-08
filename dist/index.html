@@ -2,16 +2,25 @@
 <html>
     <head></head>
     <body>
-        <h1>Hello, Anthony</h1>
-        <h2>Add City</h2>
-        <form id="addCity">
-            <input type="text" id="cityInput" placeholder="Enter city name"><br><br>
-            <input type="text" id="stateInput" placeholder="Enter state name"><br><br>
-            <input type="text" id="weatherInput" placeholder="Enter weather"><br><br>
-            <input type="submit" value="Save City">
-
+        <h3>Sign Up</h3>
+        <form id="signupForm">
+            <input type="text" id="firstName" placeholder="Enter First Name" required><br><br>
+            <input type="text" id="lastName" placeholder="Enter Last Name" required><br><br>
+            <input type="email" id="signupEmail" placeholder="Enter email" required><br><br>
+            <input type="password" id="signupPassword" placeholder="Enter password" required><br><br>
+            <input type="submit" value="Sign Up"><br><br>
+        </form>
+        <h3>Login</h3>
+        <form id="loginForm">
+            <input type="email" id="loginEmail" placeholder="Enter email" required><br><br>
+            <input type="password" id="loginPassword" placeholder="Enter password" required><br><br>
+            <input type="submit" value="Login"><br><br>
+        </form>
+        <h3>Logout</h3>
+        <form id="logoutForm">
+            <input type="submit" value="Logout"><br><br>
         </form>
     </body>
-    <script src="bundle.js"></script>
+    <script src="index.bundle.js"></script>
     
 </html>
